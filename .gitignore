@@ -1,0 +1,2 @@
+/node_modules 
+// COMENTÁRIO: Define qual pasta será ignorada pelo Git. No caso, a pasta node_modules, que é onde ficam as dependências do projeto.
