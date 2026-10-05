@@ -4,11 +4,14 @@ const readline = require("readline-sync");
 //                    SISTEMA DE ALUNOS
 // =======================================================
 
+// Array para armazenar os alunos. Os colchetes [] indicam que é um array, ou seja, uma lista de elementos.
 let alunos = [];
 
-let executando = true;
+// Variável de controle do Loop (evitar ficar digitando true sempre)
+let executando = true; 
 
-while (executando) {
+// Estrutura de repetição, que vai repetir enquanto a variável executando for trues
+while (executando) { 
 
     console.log("\n==============================");
     console.log("      SISTEMA DE ALUNOS");
@@ -19,6 +22,8 @@ while (executando) {
     console.log("4 - Ver situação dos alunos");
     console.log("5 - Sair");
     console.log("==============================");
+
+    //readLine.question é uma função que permite ler a entrada do usuário no console. Ela exibe uma mensagem (prompt) e espera o usuário digitar algo, retornando o valor digitado como uma string. Neste caso, vamos abordar um switch case, que é uma estrutura de controle de fluxo que permite executar diferentes blocos de código com base no valor de uma expressão. O switch case é útil quando temos várias opções possíveis e queremos executar um bloco específico para cada opção.
 
     let opcao = readline.question("Escolha uma opcao: ");
 
@@ -35,9 +40,12 @@ while (executando) {
             let nota = Number(readline.question("Nota: "));
 
             // 1) Verificar se a nota está entre 0 e 10
-            while (nota < 0 || nota > 10) {
+            if (nota >= 0 || nota <= 10) {
+                console.log("Nota registrada!");
+            } else {
                 console.log("Nota inválida! Digite um valor entre 0 e 10.");
                 nota = Number(readline.question("Nota: "));
+                
             }
 
             // 2) Criar um objeto aluno
@@ -80,7 +88,7 @@ while (executando) {
 
         break;
 
-
+//----------------------------------------------------------------
         // ----- CONSULTAR ALUNOS ----------
         case "3":
 
@@ -90,8 +98,7 @@ while (executando) {
 
     let alunoEncontrado = false;
 
-    // 1) Percorrer o array procurando
-    // pelo nome informado.
+    // 1) Percorrer o array procurando pelo nome informado.
 
     // Se encontrar:
     // - Mostrar os dados
@@ -113,8 +120,7 @@ while (executando) {
 
     console.log("\n--- SITUACAO DOS ALUNOS ---");
 
-    // TODO:
-    // Percorrer todos os alunos
+    // 2) Percorrer todos os alunos
 
     // Se nota >= 7
     //    Aprovado
