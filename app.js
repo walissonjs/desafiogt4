@@ -44,8 +44,7 @@ while (executando) {
                 console.log("Nota registrada!");
             } else {
                 console.log("Nota inválida! Digite um valor entre 0 e 10.");
-                nota = Number(readline.question("Nota: "));
-                
+                nota = Number(readline.question("Nota: "));                
             }
 
             // 2) Criar um objeto aluno
