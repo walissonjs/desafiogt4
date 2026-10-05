@@ -40,7 +40,7 @@ while (executando) {
             let nota = Number(readline.question("Nota: "));
 
             // 1) Verificar se a nota está entre 0 e 10
-            if (nota >= 0 || nota <= 10) {
+            if (nota >= 0 && nota <= 10) {
                 console.log("Nota registrada!");
             } else {
                 console.log("Nota inválida! Digite um valor entre 0 e 10.");
