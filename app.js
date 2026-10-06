@@ -14,7 +14,7 @@ let executando = true;
 while (executando) {
 
     console.log("\n==============================");
-    console.log("      SISTEMA DE ALUNOS");
+    console.log("      SISTEMA DE ALUNOS:");
     console.log("==============================");
     console.log("1 - Cadastrar aluno");
     console.log("2 - Listar alunos");
@@ -61,17 +61,17 @@ while (executando) {
         // -------------- LISTAR ALUNOS -----------------
         case "2":
 
-            console.log("\n--- ALUNOS CADASTRADOS ---");
+            console.log("\n--- ALUNOS CADASTRADOS: ---");
 
             // 1) Verificar se existem alunos cadastrados
 
             if (alunos.length !== 0) {
-                for (aluno of alunos) {
-                    // EXEMPLO 01
-                    // console.log("---------------");
-                    // console.log("Nome: " + aluno.nome);
-                    // console.log("Idade: " + aluno.idade);
-                    // console.log("Nota: " + aluno.nota);
+                for (let aluno of alunos) {
+                    //EXEMPLO 01
+                    console.log("---------------");
+                    console.log("Nome: " + aluno.nome);
+                    console.log("Idade: " + aluno.idade);
+                    console.log("Nota: " + aluno.nota+"\n");
 
                     // EXEMPLO 02
                     // console.log(`
@@ -82,45 +82,45 @@ while (executando) {
                     // `);
 
                     // EXEMPLO 03
-                    for (let i = 0; i < alunos.length; i++) {
-                        console.log("---------------");
-                        console.log("Nome: " + alunos[i].nome); // alunos[i] é o aluno atual no loop, e .nome acessa a propriedade nome desse aluno. O [i] é usado para acessar o elemento na posição i do array alunos.
-                        console.log("Idade: " + alunos[i].idade);
-                        console.log("Nota: " + alunos[i].nota);
-                    }
-                    console.log("--- Total de Alunos: ---");
-                    console.log(alunos.length);
+                    // for (let i = 0; i < alunos.length; i++) {
+                    //     console.log("---------------");
+                    //     console.log("Nome: " + alunos[i].nome); // alunos[i] é o aluno atual no loop, e .nome acessa a propriedade nome desse aluno. O [i] é usado para acessar o elemento na posição i do array alunos.
+                    //     console.log("Idade: " + alunos[i].idade);
+                    //     console.log("Nota: " + alunos[i].nota);
+                    // }
                 }
 
             } else {
                 console.log("Nenhum aluno cadastrado!");
             }
+            console.log("--- Total de Alunos: ---");
+            console.log(alunos.length);
             break;
-            // 2) Percorrer o array utilizando FOR
-            // for (let i = 0; i < alunos.length; i++) {
-            // }
+        // 2) Percorrer o array utilizando FOR
+        // for (let i = 0; i < alunos.length; i++) {
+        // }
 
-            // 3) Mostrar: Nome, Idade e Nota
-            // for (let i = 0; i < alunos.length; i++) {
-            //     console.log("---------------");
-            //     console.log("Nome: " + alunos[i].nome); // alunos[i] é o aluno atual no loop, e .nome acessa a propriedade nome desse aluno. O [i] é usado para acessar o elemento na posição i do array alunos.
-            //     console.log("Idade: " + alunos[i].idade);
-            //     console.log("Nota: " + alunos[i].nota);
-            //     console.log("---------- Resumo Alunos: -----");
-            //     console.log(alunos);
-            // }
+        // 3) Mostrar: Nome, Idade e Nota
+        // for (let i = 0; i < alunos.length; i++) {
+        //     console.log("---------------");
+        //     console.log("Nome: " + alunos[i].nome); // alunos[i] é o aluno atual no loop, e .nome acessa a propriedade nome desse aluno. O [i] é usado para acessar o elemento na posição i do array alunos.
+        //     console.log("Idade: " + alunos[i].idade);
+        //     console.log("Nota: " + alunos[i].nota);
+        //     console.log("---------- Resumo Alunos: -----");
+        //     console.log(alunos);
+        // }
 
 
         //----------------------------------------------------------------
         // ----- CONSULTAR ALUNOS ----------
         case "3":
 
-            console.log("\n--- CONSULTAR ALUNO ---");
-        let nomeBusca = readline.question("Digite o nome do aluno: ").toLowerCase();
-        let alunoEncontrado = false;
+            console.log("\n--- CONSULTAR ALUNO: ---");
+            let nomeBusca = readline.question("Digite o nome do aluno: ").toLowerCase();
+            let alunoEncontrado = false;
 
-        // 1) Percorrer o array procurando pelo nome informado.
-        
+            // 1) Percorrer o array procurando pelo nome informado.
+
             for (let i = 0; i < alunos.length; i++) {
                 // Se encontrar:
                 // - Mostrar os dados
@@ -129,49 +129,58 @@ while (executando) {
                     console.log("Aluno: " + alunos[i].nome);
                     console.log("Idade: " + alunos[i].idade);
                     console.log("Nota: " + alunos[i].nota);
-                    
-            // - Alterar alunoEncontrado para true
-                alunoEncontrado = true;
-                // - Utilizar BREAK
-            }   
-        }
-                if (!alunoEncontrado) {
-                    console.log("Aluno nao encontrado.");
-                break;
-                }
-                
 
-//----------------------------------------------------------------
-//---------------------------- SITUAÇÃO --------------------------
+                    // - Alterar alunoEncontrado para true
+                    alunoEncontrado = true;
+                    break;
+                    // - Utilizar BREAK
+                }
+            }
+            if (!alunoEncontrado) {
+                console.log("Aluno nao encontrado.");
+                break;
+            }
+            break
+
+
+        //----------------------------------------------------------------
+        //---------------------------- SITUAÇÃO --------------------------
         case "4":
 
-        console.log("\n--- SITUACAO DOS ALUNOS ---");
+            console.log("\n--- SITUAÇÃO DOS ALUNOS: ---\n");
 
-        // 2) Percorrer todos os alunos
+            // 2) Percorrer todos os alunos
+            if (alunos.length === 0) {
+                console.log("Nenhum aluno Cadastrado!");
+            }
+                for (let i = 0; i < alunos.length; i++) {
+                    let aluno = alunos[i];
+                    console.log(`\nNome: ${aluno.nome}`);
+                    console.log(`Nota: ${aluno.nota}`);
 
-        // Se nota >= 7
-        //    Aprovado
-        //
-        // Senão se nota >= 5
-        //    Recuperacao
-        //
-        // Senão
-        //    Reprovado
-
-
+                    // Se nota >= 7 >>>> Aprovado
+                    // Senão se nota >= 5 >>>> Recuperacao
+                    // Senão >>>> Reprovado
+                    if (aluno.nota >= 7) {
+                        console.log(`------------------\n→ Situação: Aprovado(a)!`);
+                    } else if (aluno.nota >= 5) {
+                        console.log(`------------------\n→ Situação: Em Recuperação!`);
+                    } else {
+                        console.log(`------------------\n→ Situação: Reprovado(a)!`);
+                    }
+                }
         break;
 
-
         // --------------------------------
-        // SAIR
+        //        ENCERRAR APLICAÇÃO
         // --------------------------------
         case "5":
 
-        console.log("\nSistema encerrado!");
+            console.log("\nSistema encerrado!");
 
-        executando = false;
+            executando = false;
 
-        break;
+            break;
 
 
         // --------------------------------
@@ -179,8 +188,8 @@ while (executando) {
         // --------------------------------
         default:
 
-        console.log("\nOpcao invalida!");
+            console.log("\nOpcao invalida!");
 
-        break;
+            break;
     }
 }
